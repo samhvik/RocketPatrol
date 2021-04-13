@@ -58,7 +58,7 @@ class Play extends Phaser.Scene {
         //score initialized
         this.p1Score = 0;
 
-        //displaying score
+         // display score
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
@@ -71,7 +71,6 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 100
         }
-
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
 
         //game over flag
@@ -124,10 +123,10 @@ class Play extends Phaser.Scene {
 
     checkCollision(rocket, ship){
         //simple AABB checking
-        if( rocket.x < ship.x + ship.width && 
-            rocket.x + rocket.width > ship.x &&
+        if (rocket.x < ship.x + ship.width && 
+            rocket.x + rocket.width > ship.x && 
             rocket.y < ship.y + ship.height &&
-            rocket.y + rocket.y > ship.y){
+            rocket.height + rocket.y > ship. y) {
                 return true;
         }
         return false
@@ -145,7 +144,7 @@ class Play extends Phaser.Scene {
             boom.destroy();                     // remove explosion sprite
         });
         // score add and repaint
-        this.p1Score += ship.points;
+        this.p1Score += ship.pointValue;
         this.scoreLeft.text = this.p1Score;
         this.sound.play('sfx_explosion');
     }
